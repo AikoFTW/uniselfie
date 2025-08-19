@@ -130,5 +130,4 @@ For questions about this website template, contact the developer or refer to the
 
 ## License
 
-This website template is created for UniSelfie.
-
+This website template is created for UniSelfie. Modify as needed for your business.

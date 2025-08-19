@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - UniSelfie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .admin-header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .admin-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+        
+        .admin-sidebar {
+            position: fixed;
+            left: 0;
+            top: 80px;
+            width: 250px;
+            height: calc(100vh - 80px);
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            padding: 2rem 0;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 2rem;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #f1f5f9;
+            color: #2563eb;
+        }
+        
+        .sidebar-menu i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        
+        .admin-main {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .recent-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        .submissions-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .submission-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .submission-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .submission-meta {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .status-new {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-viewed {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-replied {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .empty-state {
+            padding: 3rem;
+            text-align: center;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <nav class="admin-nav">
+            <div class="admin-logo">UniSelfie Admin</div>
+            <div class="admin-user">
+                <i class="fas fa-user-circle"></i>
+                <span>Mr. Ashari</span>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="admin-sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="/admin" class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+            <li><a href="/admin/contacts"><i class="fas fa-envelope"></i>Contact Submissions</a></li>
+            <li><a href="/"><i class="fas fa-globe"></i>View Website</a></li>
+        </ul>
+    </aside>
+
+    <main class="admin-main">
+        <h1 style="margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">Dashboard</h1>
+        
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-number"><%= contactSubmissions.length %></div>
+                <div class="stat-label">Total Contact Submissions</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number"><%= contactSubmissions.filter(s => s.status === 'new').length %></div>
+                <div class="stat-label">New Inquiries</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number"><%= contactSubmissions.filter(s => s.eventType === 'wedding').length %></div>
+                <div class="stat-label">Wedding Inquiries</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number"><%= contactSubmissions.filter(s => s.eventType === 'corporate').length %></div>
+                <div class="stat-label">Corporate Inquiries</div>
+            </div>
+        </div>
+
+        <div class="recent-section">
+            <div class="section-header">
+                <h2 class="section-title">Recent Contact Submissions</h2>
+            </div>
+            
+            <div class="submissions-list">
+                <% if (contactSubmissions.length === 0) { %>
+                    <div class="empty-state">
+                        <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                        <p>No contact submissions yet.</p>
+                    </div>
+                <% } else { %>
+                    <% contactSubmissions.slice(0, 5).forEach(submission => { %>
+                        <div class="submission-item">
+                            <div class="submission-info">
+                                <h4><%= submission.name %></h4>
+                                <div class="submission-meta">
+                                    <%= submission.eventType %> • <%= submission.email %> • <%= new Date(submission.timestamp).toLocaleDateString() %>
+                                </div>
+                            </div>
+                            <span class="status-badge status-<%= submission.status %>"><%= submission.status.toUpperCase() %></span>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
