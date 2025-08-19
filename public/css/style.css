@@ -9,32 +9,35 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
+    font-family: 'Raleway', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
     color: #1a1a1a;
     overflow-x: hidden;
     background: #ffffff;
+    font-weight: 300;
 }
 
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1d4ed8;
-    --secondary-color: #64748b;
-    --accent-color: #059669;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-light: #94a3b8;
+    --primary-color: #000000;
+    --primary-dark: #1a1a1a;
+    --secondary-color: #333333;
+    --accent-color: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #4a4a4a;
+    --text-light: #6b6b6b;
+    --text-white: #ffffff;
     --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-dark: #0f172a;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --bg-secondary: #f8f8f8;
+    --bg-dark: #000000;
+    --bg-light-gray: #f5f5f5;
+    --border-color: #e8e8e8;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px -2px rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 16px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 16px 32px -8px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.10);
     --border-radius: 8px;
     --border-radius-lg: 16px;
-    --transition: all 0.3s ease;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .header {
@@ -67,9 +70,11 @@ body {
 
 .logo {
     font-size: 1.875rem;
-    font-weight: 800;
+    font-weight: 200;
     color: var(--primary-color);
     text-decoration: none;
+    letter-spacing: 0.5px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .nav-links {
@@ -82,11 +87,14 @@ body {
 .nav-links a {
     text-decoration: none;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 300;
     font-size: 0.95rem;
     transition: var(--transition);
     position: relative;
     padding: 0.5rem 0;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
 .nav-links a::after {
@@ -95,8 +103,8 @@ body {
     bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    height: 1px;
+    background: var(--primary-color);
     transition: var(--transition);
 }
 
@@ -167,19 +175,22 @@ body {
 
 .dropdown-menu a:hover {
     color: var(--primary-color);
-    background: #f8fafc;
+    background: #f8f8f8;
 }
 
 .cta-button {
     background: var(--primary-color);
     color: white;
     padding: 0.75rem 1.5rem;
-    border-radius: 50px;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 300;
+    font-size: 0.85rem;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
 }
 
 .cta-button:hover {
@@ -206,8 +217,7 @@ main {
 
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,9 +235,9 @@ main {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -238,22 +248,30 @@ main {
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 100;
     margin-bottom: 1.5rem;
     opacity: 0;
     animation: fadeInUp 1s ease 0.5s forwards;
     line-height: 1.1;
-    color: white;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
 }
 
 .hero p {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
     margin-bottom: 2.5rem;
     opacity: 0;
     animation: fadeInUp 1s ease 0.7s forwards;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-buttons {
@@ -268,7 +286,7 @@ main {
 
 .page-hero {
     height: 60vh;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,15 +328,17 @@ main {
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    border-radius: 50px;
+    border-radius: var(--border-radius);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 300;
+    font-size: 0.9rem;
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    font-family: inherit;
-    min-width: 150px;
+    font-family: 'Raleway', sans-serif;
+    min-width: 180px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .btn-primary {
@@ -328,7 +348,7 @@ main {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
     background: var(--primary-dark);
 }
@@ -336,12 +356,12 @@ main {
 .btn-secondary {
     background: transparent;
     color: white;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-secondary:hover {
-    background: white;
-    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
     transform: translateY(-2px);
 }
 
@@ -392,7 +412,57 @@ main {
     gap: 2rem;
 }
 
+/* Centered Grid Layouts for Odd Numbers */
+.centered-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    place-items: center;
+}
 
+@media (max-width: 1020px) {
+    .centered-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+}
+
+@media (max-width: 680px) {
+    .centered-grid-3 {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    place-items: start center;
+}
+
+@media (max-width: 1100px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+}
+
+@media (max-width: 750px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    place-items: center;
+}
+
+/* Modern Cards */
 .card {
     background: white;
     padding: 2.5rem;
@@ -451,11 +521,11 @@ main {
 
 
 .bg-light {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: #f8f8f8;
 }
 
 .bg-dark {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #0f172a 100%);
+    background: var(--bg-dark);
     color: white;
 }
 
@@ -543,7 +613,7 @@ main {
 .pricing-card.featured {
     border-color: var(--primary-color);
     transform: scale(1.05);
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    background: #ffffff;
 }
 
 .pricing-card.featured::before {
@@ -808,7 +878,7 @@ main {
         visibility: visible;
         transform: none;
         box-shadow: none;
-        background: #f8fafc;
+        background: #f8f8f8;
         margin-top: 0.5rem;
         border: 1px solid var(--border-color);
     }
@@ -926,7 +996,7 @@ select:focus {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2563eb;
+    color: var(--primary-color);
     text-decoration: none;
 }
 
@@ -947,7 +1017,7 @@ select:focus {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .nav-links a.active::after {
@@ -957,7 +1027,7 @@ select:focus {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #2563eb;
+    background: var(--primary-color);
 }
 
 
@@ -1005,11 +1075,11 @@ select:focus {
 }
 
 .dropdown-menu a:hover {
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .cta-button {
-    background: #2563eb;
+    background: var(--primary-color);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -1019,7 +1089,7 @@ select:focus {
 }
 
 .cta-button:hover {
-    background: #1d4ed8;
+    background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
@@ -1040,7 +1110,7 @@ main {
 
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1095,7 +1165,7 @@ main {
 
 .page-hero {
     height: 60vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1130,7 +1200,7 @@ main {
 
 .btn-primary {
     background: white;
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .btn-primary:hover {
@@ -1146,7 +1216,7 @@ main {
 
 .btn-secondary:hover {
     background: white;
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 
@@ -1208,7 +1278,7 @@ main {
 
 .card-icon {
     font-size: 3rem;
-    color: #2563eb;
+    color: var(--primary-color);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -1294,7 +1364,7 @@ main {
 }
 
 .pricing-card.featured {
-    border: 3px solid #2563eb;
+    border: 3px solid var(--primary-color);
     transform: scale(1.05);
 }
 
@@ -1304,7 +1374,7 @@ main {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: #2563eb;
+    background: var(--primary-color);
     color: white;
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
@@ -1321,7 +1391,7 @@ main {
 .pricing-card .price {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -1366,7 +1436,7 @@ main {
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #2563eb;
+    border-color: var(--primary-color);
 }
 
 .form-group textarea {
@@ -1414,7 +1484,7 @@ main {
 }
 
 .footer-section ul li a:hover {
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .social-links {
@@ -1429,7 +1499,7 @@ main {
 }
 
 .social-links a:hover {
-    color: #2563eb;
+    color: var(--primary-color);
 }
 
 .contact-info p {
