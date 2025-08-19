@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Submissions - UniSelfie Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .admin-header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .admin-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2563eb;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 640px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+        
+        .admin-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+        
+        .admin-sidebar {
+            position: fixed;
+            left: 0;
+            top: 80px;
+            width: 250px;
+            height: calc(100vh - 80px);
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            padding: 2rem 0;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 2rem;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #f1f5f9;
+            color: #2563eb;
+        }
+        
+        .sidebar-menu i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+        
+        .admin-main {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        
+        .submissions-table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+        
+        .table-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .table-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+        
+        td {
+            color: #6b7280;
+        }
+        
+        .submission-name {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        .submission-message {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .status-select {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 0.875rem;
+        }
+        
+        .delete-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .delete-btn:hover {
+            background: #dc2626;
+        }
+        
+        .empty-state {
+            padding: 3rem;
+            text-align: center;
+            color: #64748b;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .detail-row {
+            margin-bottom: 1rem;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            color: #6b7280;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                width: 200px;
+            }
+            
+            .admin-main {
+                margin-left: 200px;
+                padding: 1rem;
+            }
+            
+            .table-header {
+                padding: 1rem;
+            }
+            
+            th, td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .submission-message {
+                max-width: 150px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 100;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+            
+            .admin-sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .admin-main {
+                margin-left: 0;
+            }
+            
+            .submissions-table {
+                overflow-x: auto;
+            }
+            
+            table {
+                min-width: 800px;
+            }
+            
+            .modal-content {
+                padding: 1rem;
+                width: 95%;
+            }
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .view-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background 0.2s;
+        }
+        
+        .view-btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <nav class="admin-nav">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="admin-logo">UniSelfie Admin</div>
+            </div>
+            <div class="admin-user">
+                <i class="fas fa-user-circle"></i>
+                <span>Mr. Ashari</span>
+            </div>
+        </nav>
+    </header>
+
+    <aside class="admin-sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="/admin"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+            <li><a href="/admin/contacts" class="active"><i class="fas fa-envelope"></i>Contact Submissions</a></li>
+            <li><a href="/"><i class="fas fa-globe"></i>View Website</a></li>
+        </ul>
+    </aside>
+
+    <main class="admin-main">
+        <h1 style="margin-bottom: 2rem; font-size: 2rem; font-weight: 700;">Contact Submissions</h1>
+        
+        <div class="submissions-table">
+            <div class="table-header">
+                <h2 class="table-title">All Submissions (<%= submissions.length %>)</h2>
+            </div>
+            
+            <% if (submissions.length === 0) { %>
+                <div class="empty-state">
+                    <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                    <p>No contact submissions yet.</p>
+                </div>
+            <% } else { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Event Type</th>
+                            <th>Event Date</th>
+                            <th>Guests</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% submissions.forEach(submission => { %>
+                            <tr>
+                                <td class="submission-name"><%= submission.name %></td>
+                                <td><%= submission.email %></td>
+                                <td><%= submission.eventType %></td>
+                                <td><%= submission.eventDate ? new Date(submission.eventDate).toLocaleDateString() : 'Not specified' %></td>
+                                <td><%= submission.guestCount || 'Not specified' %></td>
+                                <td>
+                                    <select class="status-select" data-submission-id="<%= submission.id %>" onchange="updateStatus(this.dataset.submissionId, this.value)">
+                                        <option value="new" <%= submission.status === 'new' ? 'selected' : '' %>>New</option>
+                                        <option value="viewed" <%= submission.status === 'viewed' ? 'selected' : '' %>>Viewed</option>
+                                        <option value="replied" <%= submission.status === 'replied' ? 'selected' : '' %>>Replied</option>
+                                    </select>
+                                </td>
+                                <td><%= new Date(submission.timestamp).toLocaleDateString() %></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button data-submission-id="<%= submission.id %>" onclick="viewDetails(this.dataset.submissionId)" class="view-btn">View</button>
+                                        <button data-submission-id="<%= submission.id %>" onclick="deleteSubmission(this.dataset.submissionId)" class="delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } %>
+        </div>
+    </main>
+
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Submission Details</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const submissions = <%- JSON.stringify(submissions) %>;
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.admin-sidebar');
+            const currentTransform = sidebar.style.transform;
+            if (currentTransform === 'translateX(0px)' || currentTransform === '') {
+                sidebar.style.transform = 'translateX(-100%)';
+            } else {
+                sidebar.style.transform = 'translateX(0px)';
+            }
+        }
+
+        function updateStatus(id, status) {
+            fetch(`/admin/contacts/${id}/status`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Status updated');
+                } else {
+                    console.error('Failed to update status');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating status:', error);
+            });
+        }
+
+        function deleteSubmission(id) {
+            if (confirm('Are you sure you want to delete this submission?')) {
+                fetch(`/admin/contacts/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Failed to delete submission');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting submission:', error);
+                    alert('Error deleting submission');
+                });
+            }
+        }
+
+        function viewDetails(id) {
+            const submission = submissions.find(s => s.id == id);
+            if (!submission) {
+                console.error('Submission not found');
+                return;
+            }
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="detail-row">
+                    <div class="detail-label">Name:</div>
+                    <div class="detail-value">${submission.name}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Email:</div>
+                    <div class="detail-value"><a href="mailto:${submission.email}">${submission.email}</a></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Phone:</div>
+                    <div class="detail-value"><a href="tel:${submission.phone}">${submission.phone || 'Not provided'}</a></div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Event Type:</div>
+                    <div class="detail-value">${submission.eventType}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Event Date:</div>
+                    <div class="detail-value">${submission.eventDate ? new Date(submission.eventDate).toLocaleDateString() : 'Not specified'}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Guest Count:</div>
+                    <div class="detail-value">${submission.guestCount || 'Not specified'}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Venue:</div>
+                    <div class="detail-value">${submission.venue || 'Not specified'}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Message:</div>
+                    <div class="detail-value">${submission.message || 'No message provided'}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Submitted:</div>
+                    <div class="detail-value">${new Date(submission.timestamp).toLocaleString()}</div>
+                </div>
+            `;
+
+            document.getElementById('detailModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 // Security middleware
 app.use(helmet({
@@ -39,9 +39,10 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// View engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+let contactSubmissions = [];
 
 // Routes
 app.get('/', (req, res) => {
@@ -103,25 +104,65 @@ app.get('/weddings', (req, res) => {
 // Contact form submission
 app.post('/contact', async (req, res) => {
   try {
-    const { name, email, phone, eventDate, eventType, message } = req.body;
+    const { name, email, phone, eventDate, eventType, guestCount, venue, message } = req.body;
     
-    // Here you would typically send an email using nodemailer
-    // For now, we'll just log the submission
-    console.log('Contact form submission:', {
+    const submission = {
+      id: Date.now(),
+      timestamp: new Date().toISOString(),
       name,
       email,
       phone,
       eventDate,
       eventType,
+      guestCount,
+      venue,
       message,
-      timestamp: new Date()
-    });
+      status: 'new'
+    };
+    
+    contactSubmissions.push(submission);
+    
+    console.log('Contact form submission:', submission);
 
     res.json({ success: true, message: 'Thank you for your inquiry! We\'ll get back to you within 24 hours.' });
   } catch (error) {
     console.error('Contact form error:', error);
     res.status(500).json({ success: false, message: 'There was an error sending your message. Please try again.' });
   }
+});
+
+// Admin routes
+app.get('/admin', (req, res) => {
+  res.render('admin/dashboard', { 
+    title: 'Admin Dashboard - UniSelfie',
+    contactSubmissions,
+    inquiries: []
+  });
+});
+
+app.get('/admin/contacts', (req, res) => {
+  res.render('admin/contacts', { 
+    title: 'Contact Submissions - UniSelfie Admin',
+    submissions: contactSubmissions
+  });
+});
+
+app.post('/admin/contacts/:id/status', (req, res) => {
+  const id = parseInt(req.params.id);
+  const submission = contactSubmissions.find(s => s.id === id);
+  if (submission) {
+    submission.status = req.body.status;
+  }
+  res.json({ success: true });
+});
+
+app.delete('/admin/contacts/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = contactSubmissions.findIndex(s => s.id === id);
+  if (index > -1) {
+    contactSubmissions.splice(index, 1);
+  }
+  res.json({ success: true });
 });
 
 // 404 handler
@@ -144,4 +185,5 @@ app.use((error, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`UniSelfie website running on port ${PORT}`);
   console.log(`Visit: http://localhost:${PORT}`);
+  console.log(`Admin: http://localhost:${PORT}/admin`);
 });
