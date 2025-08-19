@@ -1,0 +1,190 @@
+<%- include('partials/header', { 
+    title: title,
+    description: 'UniSelfie provides premium open air photobooth rentals in Seattle. Perfect for weddings, corporate events, and parties. Book your unforgettable experience today!',
+    page: 'home'
+}) %>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Seattle's Premier Open Air Photobooth Experience</h1>
+            <p>Create unforgettable memories at your wedding, corporate event, or celebration with our professional open air photobooth service.</p>
+            <div class="hero-buttons">
+                <a href="/contact" class="btn-primary">Book Your Event</a>
+                <a href="/gallery" class="btn-secondary">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="two-column">
+                <div>
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-primary);">Why Choose UniSelfie?</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">We're not just another photobooth company. We're memory makers, smile creators, and the reason your guests will be talking about your event for years to come.</p>
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; font-size: 1.1rem;"></i>Professional grade equipment</li>
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; font-size: 1.1rem;"></i>Instant prints & digital delivery</li>
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; font-size: 1.1rem;"></i>Custom branding & templates</li>
+                        <li style="display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-secondary);"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.75rem; font-size: 1.1rem;"></i>Friendly, professional attendant</li>
+                    </ul>
+                    <a href="/about" class="btn-primary">Learn More About Us</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Professional photobooth setup" style="width: 100%; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-xl);" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section bg-light animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Everything you need for an amazing photo experience at your event</p>
+            </div>
+            <div class="three-column">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Open Air Photobooth</h3>
+                    <p>Our signature open air setup allows for larger groups and more creative shots. No cramped booth - just pure fun and flexibility.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Instant Prints</h3>
+                    <p>High-quality instant prints that your guests can take home immediately. Custom templates available to match your event theme.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Digital Sharing</h3>
+                    <p>Instant digital delivery via email, text, or QR code. Perfect for social media sharing and keeping memories accessible forever.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Custom Branding</h3>
+                    <p>Personalized photo templates, backdrops, and props to match your event theme and create cohesive branded experiences.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Professional Staff</h3>
+                    <p>Friendly, experienced attendants ensure smooth operation and help guests get the perfect shot every time.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Online Gallery</h3>
+                    <p>Access all your event photos in a private online gallery that you can share with guests and download anytime.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/services" class="btn-primary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Events</h2>
+                <p>See our photobooth in action at recent events around Seattle</p>
+            </div>
+            <div class="gallery-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); max-width: 1000px; margin: 0 auto;">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding photobooth fun" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Corporate event networking" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Birthday party celebration" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Professional setup" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Group photo session" />
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Event memories" />
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/gallery" class="btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section bg-light animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple Pricing</h2>
+                <p>Choose the perfect package for your event</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Essential</h3>
+                    <div class="price">$299</div>
+                    <p style="margin-bottom: 1.5rem;">Perfect for intimate gatherings</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i>2 hour service</li>
+                        <li><i class="fas fa-check"></i>Unlimited photos</li>
+                        <li><i class="fas fa-check"></i>Basic props included</li>
+                    </ul>
+                    <a href="/pricing" class="btn-primary">View Details</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">$449</div>
+                    <p style="margin-bottom: 1.5rem;">Our most popular package</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i>4 hour service</li>
+                        <li><i class="fas fa-check"></i>Instant prints</li>
+                        <li><i class="fas fa-check"></i>Premium props</li>
+                        <li><i class="fas fa-check"></i>Custom template</li>
+                    </ul>
+                    <a href="/pricing" class="btn-primary">View Details</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Deluxe</h3>
+                    <div class="price">$649</div>
+                    <p style="margin-bottom: 1.5rem;">The complete experience</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i>6 hour service</li>
+                        <li><i class="fas fa-check"></i>Instant & digital photos</li>
+                        <li><i class="fas fa-check"></i>Custom backdrop</li>
+                        <li><i class="fas fa-check"></i>Online gallery</li>
+                    </ul>
+                    <a href="/pricing" class="btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section bg-dark animate-on-scroll">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; margin-bottom: 1rem; font-size: 2.5rem; font-weight: 800;">Ready to Make Your Event Unforgettable?</h2>
+            <p style="color: #cbd5e1; font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Let's discuss your event and create amazing memories together. Get your free quote today!</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/contact" class="btn-primary">Get Free Quote</a>
+                <a href="tel:(206)555-0123" class="btn-secondary">Call (206) 555-0123</a>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,265 @@
+<%- include('partials/header', { 
+    title: 'Contact & Booking - UniSelfie Seattle Photobooth',
+    description: 'Contact UniSelfie for photobooth rental quotes and booking. Serving Seattle weddings, corporate events, and celebrations.',
+    page: 'contact'
+}) %>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="hero-content">
+        <h1>Contact & Booking</h1>
+        <p>Ready to make your event unforgettable? Let's get started!</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section animate-on-scroll">
+    <div class="container">
+        <div class="two-column">
+            <div>
+                <h2>Get In Touch</h2>
+                <p style="margin-bottom: 2rem;">Ready to book your photobooth experience? Fill out the form and we'll get back to you within 24 hours with a custom quote and availability.</p>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 1rem;"><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> Phone</h4>
+                    <p style="font-size: 1.1rem;"><a href="tel:(206)555-0123" style="color: #333; text-decoration: none;">(206) 555-0123</a></p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Available 7 days a week, 9 AM - 8 PM</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 1rem;"><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> Email</h4>
+                    <p style="font-size: 1.1rem;"><a href="mailto:hello@uniselfie.com" style="color: #333; text-decoration: none;">hello@uniselfie.com</a></p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">We respond to all emails within 24 hours</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Service Area</h4>
+                    <p style="font-size: 1.1rem;">Seattle, WA & Surrounding Areas</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Including Bellevue, Tacoma, Everett, and more</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 1rem;"><i class="fas fa-calendar-alt" style="margin-right: 0.5rem;"></i> Availability</h4>
+                    <p style="font-size: 1.1rem;">7 Days a Week</p>
+                    <p style="color: #6b7280; font-size: 0.9rem;">Weekends, evenings, and holidays available</p>
+                </div>
+                
+                <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Event Types We Cover</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-heart" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Weddings</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-building" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Corporate Events</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-birthday-cake" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Birthday Parties</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-graduation-cap" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Graduations</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-glass-cheers" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Social Events</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-star" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                        <span>Special Occasions</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 1.5rem;">Book Your Event</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" name="eventDate">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eventType">Event Type *</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Select Event Type</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="social">Social Event</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="venue">Venue/Location</label>
+                            <input type="text" id="venue" name="venue" placeholder="Event venue or address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestCount">Expected Guest Count</label>
+                            <select id="guestCount" name="guestCount">
+                                <option value="">Select guest count</option>
+                                <option value="1-25">1-25 guests</option>
+                                <option value="26-50">26-50 guests</option>
+                                <option value="51-100">51-100 guests</option>
+                                <option value="101-200">101-200 guests</option>
+                                <option value="200+">200+ guests</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="package">Preferred Package</label>
+                            <select id="package" name="package">
+                                <option value="">Select a package</option>
+                                <option value="essential">Essential ($299)</option>
+                                <option value="premium">Premium ($449)</option>
+                                <option value="deluxe">Deluxe ($649)</option>
+                                <option value="custom">Custom Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Tell us about your event</label>
+                            <textarea id="message" name="message" placeholder="Event details, special requests, questions, or anything else you'd like us to know..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Options -->
+<section class="section bg-light animate-on-scroll">
+    <div class="container">
+        <div class="section-title">
+            <h2>Need a Quick Response?</h2>
+            <p>Choose the fastest way to reach us</p>
+        </div>
+        <div class="three-column">
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Call Now</h3>
+                <p>Speak directly with Mr. Ashari for immediate answers and availability</p>
+                <a href="tel:(206)555-0123" class="btn-primary" style="margin-top: 1rem;">(206) 555-0123</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>Send us details about your event and we'll respond within 24 hours</p>
+                <a href="mailto:hello@uniselfie.com" class="btn-primary" style="margin-top: 1rem;">hello@uniselfie.com</a>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="card-icon">
+                    <i class="fas fa-comment"></i>
+                </div>
+                <h3>Text Message</h3>
+                <p>Send a quick text with your event date and location for fast quotes</p>
+                <a href="sms:(206)555-0123" class="btn-primary" style="margin-top: 1rem;">Text Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ for Contact -->
+<section class="section animate-on-scroll">
+    <div class="container">
+        <div class="section-title">
+            <h2>Booking Information</h2>
+            <p>Important details about booking and preparation</p>
+        </div>
+        <div class="two-column">
+            <div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">How far in advance should I book?</h4>
+                    <p>We recommend booking 4-6 weeks in advance, especially for weddings and popular dates. However, we can often accommodate last-minute requests if available.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What information do you need to provide a quote?</h4>
+                    <p>Event date, location, type of event, expected guest count, and preferred service duration. The more details you provide, the more accurate our quote will be.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">Do you require a deposit?</h4>
+                    <p>Yes, we require a 50% deposit to secure your date. The remaining balance is due on the day of your event. We accept cash, check, and all major credit cards.</p>
+                </div>
+            </div>
+            <div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What happens if it rains (outdoor events)?</h4>
+                    <p>We can adapt to covered outdoor areas or move indoors if needed. Our equipment is weather-resistant, and we'll work with you to ensure your event goes smoothly.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">How much space do you need?</h4>
+                    <p>We need approximately 8x8 feet of space for the photobooth setup, plus additional space for guests to pose and move around comfortably.</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <h4 style="color: #2563eb; margin-bottom: 0.5rem;">Do you provide liability insurance?</h4>
+                    <p>Yes, we carry comprehensive liability insurance. We can provide certificates of insurance for venues that require it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Proof -->
+<section class="section bg-light animate-on-scroll">
+    <div class="container" style="text-align: center;">
+        <div class="section-title">
+            <h2>Join Our Happy Clients</h2>
+            <p>See what others are saying about UniSelfie</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            <div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2563eb;">150+</div>
+                <p>Events Completed</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2563eb;">5.0★</div>
+                <p>Average Rating</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2563eb;">100%</div>
+                <p>Satisfaction Rate</p>
+            </div>
+            <div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2563eb;">3 Years</div>
+                <p>Serving Seattle</p>
+            </div>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+            <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem;">★★★★★</div>
+            <p style="font-style: italic; margin-bottom: 1rem;">"UniSelfie made our wedding absolutely perfect! The photo quality was amazing and our guests had so much fun. Mr. Ashari was professional, friendly, and went above and beyond. Highly recommend!"</p>
+            <div style="font-weight: 600;">Sarah & Mike Johnson</div>
+            <div style="color: #6b7280; font-size: 0.9rem;">Wedding, Bellevue</div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

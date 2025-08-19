@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <meta name="description" content="UniSelfie provides premium open air photobooth rentals in Seattle. Perfect for weddings, corporate events, and parties. Book your unforgettable experience today!">
+    <meta name="keywords" content="photobooth, Seattle, wedding, corporate events, open air photobooth, photo booth rental">
+    <meta name="author" content="Mr. Ashari - UniSelfie">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="Seattle's premier open air photobooth service">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uniselfie.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body>
+    <%- include('partials/header') %>
+    
+    <main>
+        <%- body %>
+    </main>
+    
+    <%- include('partials/footer') %>
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

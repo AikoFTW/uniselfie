@@ -1,0 +1,325 @@
+<%- include('partials/header', { 
+    title: 'Gallery - UniSelfie Seattle Photobooth',
+    description: 'Browse our photo gallery featuring recent weddings, corporate events, and celebrations in Seattle. See our open air photobooth in action.',
+    page: 'gallery'
+}) %>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="hero-content">
+        <h1>Photo Gallery</h1>
+        <p>See our photobooth in action at recent events around Seattle</p>
+    </div>
+</section>
+
+<!-- Gallery Categories -->
+<section class="section animate-on-scroll">
+    <div class="container">
+        <div class="section-title">
+            <h2>Event Highlights</h2>
+            <p>Browse photos from our recent events and see the joy we bring to every occasion</p>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; background: #f3f4f6; padding: 0.5rem; border-radius: 50px;">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="wedding">Weddings</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
+                <button class="filter-btn" data-filter="birthday">Birthdays</button>
+                <button class="filter-btn" data-filter="other">Other Events</button>
+            </div>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Wedding Photos -->
+            <div class="gallery-item" data-category="wedding">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding photobooth fun" />
+                <div class="gallery-overlay">
+                    <h4>Seattle Wedding</h4>
+                    <p>Elegant celebration</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="wedding">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding celebration" />
+                <div class="gallery-overlay">
+                    <h4>Garden Wedding</h4>
+                    <p>Outdoor ceremony</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="wedding">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding party photos" />
+                <div class="gallery-overlay">
+                    <h4>Wedding Party</h4>
+                    <p>Bridal party fun</p>
+                </div>
+            </div>
+            
+            <!-- Corporate Photos -->
+            <div class="gallery-item" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Corporate event photobooth" />
+                <div class="gallery-overlay">
+                    <h4>Tech Company Event</h4>
+                    <p>Annual celebration</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Business networking event" />
+                <div class="gallery-overlay">
+                    <h4>Networking Event</h4>
+                    <p>Professional gathering</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company holiday party" />
+                <div class="gallery-overlay">
+                    <h4>Holiday Party</h4>
+                    <p>Company celebration</p>
+                </div>
+            </div>
+            
+            <!-- Birthday Photos -->
+            <div class="gallery-item" data-category="birthday">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Birthday party photobooth" />
+                <div class="gallery-overlay">
+                    <h4>30th Birthday</h4>
+                    <p>Milestone celebration</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="birthday">
+                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Birthday celebration" />
+                <div class="gallery-overlay">
+                    <h4>Sweet 16</h4>
+                    <p>Teen birthday bash</p>
+                </div>
+            </div>
+            
+            <!-- Other Events -->
+            <div class="gallery-item" data-category="other">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Event setup" />
+                <div class="gallery-overlay">
+                    <h4>Graduation Party</h4>
+                    <p>Achievement celebration</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="other">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Group photo fun" />
+                <div class="gallery-overlay">
+                    <h4>Family Reunion</h4>
+                    <p>Multi-generation fun</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="other">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Professional setup" />
+                <div class="gallery-overlay">
+                    <h4>Charity Gala</h4>
+                    <p>Fundraising event</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="wedding">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding reception" />
+                <div class="gallery-overlay">
+                    <h4>Reception Fun</h4>
+                    <p>Dance floor moments</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Conference event" />
+                <div class="gallery-overlay">
+                    <h4>Conference</h4>
+                    <p>Industry gathering</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="birthday">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Birthday party" />
+                <div class="gallery-overlay">
+                    <h4>40th Birthday</h4>
+                    <p>Life celebration</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="other">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Anniversary celebration" />
+                <div class="gallery-overlay">
+                    <h4>Anniversary</h4>
+                    <p>25 years together</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="wedding">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wedding photobooth props" />
+                <div class="gallery-overlay">
+                    <h4>Props & Fun</h4>
+                    <p>Creative moments</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="corporate">
+                <img src="https://images.unsplash.com/photo-1559223607-b4d0555ae227?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Product launch event" />
+                <div class="gallery-overlay">
+                    <h4>Product Launch</h4>
+                    <p>Innovation celebration</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section bg-light animate-on-scroll">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Real feedback from real events</p>
+        </div>
+        <div class="three-column">
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                        ★★★★★
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Sarah Johnson" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">"UniSelfie made our wedding reception so much fun! The open air setup was perfect and our guests loved the instant prints. Mr. Ashari was professional and made sure everything was perfect."</p>
+                <h4>Sarah Johnson</h4>
+                <p style="color: #6b7280;">Wedding, Bellevue</p>
+            </div>
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                        ★★★★★
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Mike Chen" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">"Our corporate event was a huge success thanks to UniSelfie! The photobooth was a hit with employees and the digital sharing made it easy for everyone to get their photos instantly."</p>
+                <h4>Mike Chen</h4>
+                <p style="color: #6b7280;">Corporate Event Manager</p>
+            </div>
+            <div class="card">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                        ★★★★★
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Emily Rodriguez" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">"Best birthday party ever! The kids and adults all had a blast with the photobooth. The quality of the photos was amazing and the props were so much fun. Highly recommend!"</p>
+                <h4>Emily Rodriguez</h4>
+                <p style="color: #6b7280;">Birthday Party, Seattle</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section bg-dark animate-on-scroll">
+    <div class="container" style="text-align: center;">
+        <h2 style="color: white; margin-bottom: 1rem;">Want to See Your Event Here?</h2>
+        <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 2rem;">Let's create amazing memories together at your next event</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/contact" class="btn-primary">Book Your Event</a>
+            <a href="/pricing" class="btn-secondary">View Pricing</a>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Gallery Filter Styles */
+.filter-btn {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6b7280;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* Gallery Overlay */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gallery-overlay p {
+    margin: 0;
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* Hidden items for filtering */
+.gallery-item.hidden {
+    display: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gallery filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter gallery items
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('hidden');
+                    item.style.display = 'block';
+                } else {
+                    item.classList.add('hidden');
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+
+<%- include('partials/footer') %>
