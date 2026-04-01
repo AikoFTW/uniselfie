@@ -1637,3 +1637,53 @@ main {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
+
+/* Final UI consistency overrides */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card > .btn-primary,
+.card > .btn-secondary,
+.card > a.btn-primary,
+.card > a.btn-secondary,
+.card > a[class*="btn-"] {
+    margin-top: auto;
+    align-self: center;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background: var(--primary-dark) !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+    background: #111827 !important;
+    border-color: #111827 !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #111827 !important;
+}
+
+.bg-dark .btn-secondary {
+    background: transparent !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.bg-dark .btn-secondary:hover,
+.bg-dark .btn-secondary:focus,
+.bg-dark .btn-secondary:active {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}

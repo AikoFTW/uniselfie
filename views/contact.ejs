@@ -262,4 +262,27 @@
     </div>
 </section>
 
+<script>
+    (function preselectPackageFromQuery() {
+        const packageSelect = document.getElementById('package');
+        if (!packageSelect) {
+            return;
+        }
+
+        const allowedPackages = new Set([
+            'digital-booth',
+            'classic-photo-booth',
+            'premium-experience',
+            'custom'
+        ]);
+
+        const params = new URLSearchParams(window.location.search);
+        const selectedPackage = params.get('package');
+
+        if (selectedPackage && allowedPackages.has(selectedPackage)) {
+            packageSelect.value = selectedPackage;
+        }
+    })();
+</script>
+
 <%- include('partials/footer') %>
