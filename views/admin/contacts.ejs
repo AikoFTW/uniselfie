@@ -332,7 +332,10 @@
             </div>
             <div class="admin-user">
                 <i class="fas fa-user-circle"></i>
-                <span>Mr. Ashari</span>
+                <span><%= typeof adminUser !== 'undefined' ? adminUser : 'Admin' %></span>
+                <form method="POST" action="/admin/logout" style="margin-left: 0.75rem;">
+                    <button type="submit" style="background: none; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.35rem 0.75rem; color: #64748b; cursor: pointer; font: inherit; font-size: 0.85rem;"><i class="fas fa-sign-out-alt"></i> Log out</button>
+                </form>
             </div>
         </nav>
     </header>
@@ -413,7 +416,13 @@
     </div>
 
     <script>
-        const submissions = <%- JSON.stringify(submissions) %>;
+        const submissions = <%- JSON.stringify(submissions).replace(/</g, '\\u003c') %>;
+
+        function esc(value) {
+            return String(value == null ? '' : value)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
 
         function toggleSidebar() {
             const sidebar = document.querySelector('.admin-sidebar');
@@ -433,7 +442,10 @@
                 },
                 body: JSON.stringify({ status })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 401) { location.href = '/admin/login'; throw new Error('Logged out'); }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     console.log('Status updated');
@@ -451,7 +463,10 @@
                 fetch(`/admin/contacts/${id}`, {
                     method: 'DELETE'
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (response.status === 401) { location.href = '/admin/login'; throw new Error('Logged out'); }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.success) {
                         location.reload();
@@ -477,35 +492,35 @@
             modalBody.innerHTML = `
                 <div class="detail-row">
                     <div class="detail-label">Name:</div>
-                    <div class="detail-value">${submission.name}</div>
+                    <div class="detail-value">${esc(submission.name)}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Email:</div>
-                    <div class="detail-value"><a href="mailto:${submission.email}">${submission.email}</a></div>
+                    <div class="detail-value"><a href="mailto:${esc(submission.email)}">${esc(submission.email)}</a></div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Phone:</div>
-                    <div class="detail-value"><a href="tel:${submission.phone}">${submission.phone || 'Not provided'}</a></div>
+                    <div class="detail-value"><a href="tel:${esc(submission.phone)}">${esc(submission.phone || 'Not provided')}</a></div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Event Type:</div>
-                    <div class="detail-value">${submission.eventType}</div>
+                    <div class="detail-value">${esc(submission.eventType)}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Event Date:</div>
-                    <div class="detail-value">${submission.eventDate ? new Date(submission.eventDate).toLocaleDateString() : 'Not specified'}</div>
+                    <div class="detail-value">${esc(submission.eventDate ? new Date(submission.eventDate).toLocaleDateString() : 'Not specified')}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Guest Count:</div>
-                    <div class="detail-value">${submission.guestCount || 'Not specified'}</div>
+                    <div class="detail-value">${esc(submission.guestCount || 'Not specified')}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Venue:</div>
-                    <div class="detail-value">${submission.venue || 'Not specified'}</div>
+                    <div class="detail-value">${esc(submission.venue || 'Not specified')}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Message:</div>
-                    <div class="detail-value">${submission.message || 'No message provided'}</div>
+                    <div class="detail-value"><span style="white-space: pre-wrap;">${esc(submission.message || 'No message provided')}</span></div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Submitted:</div>
